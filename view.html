@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View File</title>
+</head>
+<body>
+	<?php
+		if(isset($_GET["file"])) {
+			$target_dir = "uploads/";
+			$file = basename($_GET["file"]);
+
+			// cek apakah file ada
+			if(file_exists($target_dir . $file)) {
+				// tampilkan file
+				echo "<h2>File: " . $file . "</h2>";
+				echo "<iframe src='uploads/" . $file . "' width='500' height='500'></iframe>";
+			} else {
+				echo "Maaf, file tidak ditemukan.";
+			}
+		} else {
+			echo "Maaf, file tidak ditemukan.";
+		}
+	?>
+</body>
+</html>
